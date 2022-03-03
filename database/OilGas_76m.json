@@ -1,0 +1,28 @@
+{
+	"name": "OilGas_76m",
+	"properties": {
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"OilGas\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true,
+			"x-ms-usageinfo": "AzureSynapseDatabaseTemplate"
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://user@sdsteststore2.dfs.core.windows.net/OilGas_76m",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "sds-test-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "ed682e60-8575-439d-a61e-f25e76edbc51",
+		"Name": "OilGas_76m",
+		"EntityType": "DATABASE"
+	},
+	"type": "DATABASE"
+}
