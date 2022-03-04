@@ -1,0 +1,167 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "testpool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "14ca5ae2-dd96-47b3-a973-50bf4c2a2255"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/e342c2c0-f844-4b18-9208-52c8c234c30e/resourceGroups/sds-test/providers/Microsoft.Synapse/workspaces/sds-test/bigDataPools/testpool",
+				"name": "testpool",
+				"type": "Spark",
+				"endpoint": "https://sds-test.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/testpool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"import random\r\n",
+					"\r\n",
+					"session_id = random.randint(0,1000000)\r\n",
+					"delta_table_path = \"/delta/delta-table-{0}\".format(session_id)\r\n",
+					"\r\n",
+					"delta_table_path "
+				],
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"data = spark.range(0,5)\r\n",
+					"data.show()"
+				],
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"from pyspark.sql import *\r\n",
+					"\r\n",
+					"Employee = Row(\"firstName\", \"email\", \"salary\")\r\n",
+					"\r\n",
+					"employee1 = Employee('Basher', 'bash@edureka.co', 100000)\r\n",
+					"employee2 = Employee('Daniel', 'daniel@stanford.edu', 120000 )\r\n",
+					"employee3 = Employee('Muriel', 'muriel@waterloo.edu', 140000 )\r\n",
+					"employee4 = Employee('Rachel', 'rach_3@edureka.co', 160000 )\r\n",
+					"employee5 = Employee('Zach', 'zach_g@edureka.co', 160000 )\r\n",
+					"\r\n",
+					"print(Employee[0])\r\n",
+					"\r\n",
+					"print(employee3)\r\n",
+					"\r\n",
+					"department1 = Row(firstName='Basher', name='HR')\r\n",
+					"department2 = Row(firstName='Daniel', name='OPS')\r\n",
+					"department3 = Row(firstName='Rachel', name='FN')\r\n",
+					"department4 = Row(firstName='Zach', name='DEV')\r\n",
+					"\r\n",
+					"Employees_df = [employee1, employee2, employee3, employee4, employee5]\r\n",
+					"dframe = spark.createDataFrame(Employees_df)\r\n",
+					"display(dframe)\r\n",
+					"dframe.show()\r\n",
+					"\r\n",
+					"Department_df = [department1, department2, department3, department4]\r\n",
+					"dframe2 = spark.createDataFrame(Department_df)\r\n",
+					"display(dframe2)\r\n",
+					"dframe2.show()"
+				],
+				"execution_count": 7
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"dframe.write.format(\"delta\").save(\"/delta/EmployeeDeltaTable\")\r\n",
+					"dframe2.write.format(\"delta\").save(\"/delta/DepartmentDeltaTable\")"
+				],
+				"execution_count": 8
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"execution_count": null
+			}
+		]
+	}
+}
