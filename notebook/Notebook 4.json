@@ -39,11 +39,6 @@
 						"language": "python"
 					}
 				},
-				"source": [
-					"%%pyspark\n",
-					"df = spark.sql(\"SELECT * FROM `OilGas_76m`.`Channel`\")\n",
-					"df.show(10)"
-				],
 				"attachments": null,
 				"execution_count": null
 			}
