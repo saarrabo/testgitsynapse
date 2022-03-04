@@ -50,22 +50,6 @@
 		"cells": [
 			{
 				"cell_type": "markdown",
-				"source": [
-					"# Guide to Delta Lake (Python)\n",
-					"\n",
-					"This tutorial h been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This notebook helps you quickly explore the main features of [Delta Lake](https://github.com/delta-io/delta). It provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries.\n",
-					"\n",
-					"Here's what we will cover:\n",
-					"* Create a table\n",
-					"* Understanding meta-data\n",
-					"* Read data\n",
-					"* Update table data\n",
-					"* Overwrite table data\n",
-					"* Conditional update without overwrite\n",
-					"* Read older versions of data using Time Travel\n",
-					"* Write a stream of data to a table\n",
-					"* Read a stream of changes from a table"
-				]
 			},
 			{
 				"cell_type": "markdown",
