@@ -248,13 +248,7 @@
 				],
 				"execution_count": 54
 			},
-			{
-				"cell_type": "code",
-				"source": [
-					"data = spark.range(0,5)\n",
-					"data.show()\n",
-					"data.write.format(\"delta\").save(delta_table_path)"
-				],
+			{				
 				"execution_count": 2
 			},
 			{
