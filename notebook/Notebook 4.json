@@ -39,7 +39,9 @@
 				"source": [
 					"%%pyspark\n",
 					"df = spark.sql(\"SELECT * FROM `OilGas_76m`.`Channel`\")\n",
-					""
+					"df.show(16)"
+					"df.show(16)"
+					"df.show(16)"
 				],
 				"execution_count": null
 			},
