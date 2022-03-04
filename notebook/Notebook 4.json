@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "31e8ec62-564b-493f-a720-0a66f3a5be41"
+				"spark.autotune.trackingId": "8f87cdd7-d7f6-416e-8d4f-a1b4c9932bfe"
 			}
 		},
 		"metadata": {
@@ -57,43 +57,7 @@
 					}
 				},
 				"source": [
-					"df.show(30)"
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"df.show(20)"
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"df.show(10)"
+					"df.show(15)"
 				],
 				"execution_count": null
 			}
