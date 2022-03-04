@@ -1,5 +1,5 @@
 {
-	"name": "Delta Lake",
+	"name": "Get Started with Delta Lake",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "5",
-				"spark.autotune.trackingId": "e32a619d-83a0-4c52-bb0b-49285dd86fa8"
+				"spark.autotune.trackingId": "c7daf954-bbab-451e-9f71-c0d08910b47b"
 			}
 		},
 		"metadata": {
