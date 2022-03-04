@@ -41,10 +41,8 @@
 					"df = spark.sql(\"SELECT * FROM `OilGas_76m`.`Channel`\")\n",
 					"df.show(20)\n",
 					"df.show(20)\n",
-					"df.show(15)\n",
-					"df.show(1)\n",
-					"df.show(15)\n",
-					"df.show(15)"
+					"df.show(16)\n"
+					
 				],
 				"execution_count": null
 			},
