@@ -17,142 +17,11 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "5",
-				"spark.autotune.trackingId": "d5d3444e-d589-49c6-983d-896f5a30078c"
+				"spark.autotune.trackingId": "3ddefdc7-648c-4f72-a7c6-0feda07a0d4d"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1",
-				"state": {
-					"51f75ba3-e990-499d-b127-8c7aed36173e": {
-						"type": "Synapse.DataFrame",
-						"sync_state": {
-							"table": {
-								"rows": [
-									{
-										"0": "Basher",
-										"1": "bash@edureka.co",
-										"2": "100000"
-									},
-									{
-										"0": "Daniel",
-										"1": "daniel@stanford.edu",
-										"2": "120000"
-									},
-									{
-										"0": "Muriel",
-										"1": "muriel@waterloo.edu",
-										"2": "140000"
-									},
-									{
-										"0": "Rachel",
-										"1": "rach_3@edureka.co",
-										"2": "160000"
-									},
-									{
-										"0": "Zach",
-										"1": "zach_g@edureka.co",
-										"2": "160000"
-									}
-								],
-								"schema": [
-									{
-										"key": "0",
-										"name": "firstName",
-										"type": "string"
-									},
-									{
-										"key": "1",
-										"name": "email",
-										"type": "string"
-									},
-									{
-										"key": "2",
-										"name": "salary",
-										"type": "bigint"
-									}
-								],
-								"truncated": false
-							},
-							"isSummary": false,
-							"language": "scala"
-						},
-						"persist_state": {
-							"view": {
-								"type": "details",
-								"chartOptions": {
-									"chartType": "bar",
-									"aggregationType": "sum",
-									"categoryFieldKeys": [
-										"0"
-									],
-									"seriesFieldKeys": [
-										"2"
-									],
-									"isStacked": false
-								}
-							}
-						}
-					},
-					"b3fe9d83-3cac-4375-b9c9-44fbedba27f8": {
-						"type": "Synapse.DataFrame",
-						"sync_state": {
-							"table": {
-								"rows": [
-									{
-										"0": "Basher",
-										"1": "HR"
-									},
-									{
-										"0": "Daniel",
-										"1": "OPS"
-									},
-									{
-										"0": "Rachel",
-										"1": "FN"
-									},
-									{
-										"0": "Zach",
-										"1": "DEV"
-									}
-								],
-								"schema": [
-									{
-										"key": "0",
-										"name": "firstName",
-										"type": "string"
-									},
-									{
-										"key": "1",
-										"name": "name",
-										"type": "string"
-									}
-								],
-								"truncated": false
-							},
-							"isSummary": false,
-							"language": "scala"
-						},
-						"persist_state": {
-							"view": {
-								"type": "details",
-								"chartOptions": {
-									"chartType": "bar",
-									"aggregationType": "count",
-									"categoryFieldKeys": [
-										"0"
-									],
-									"seriesFieldKeys": [
-										"0"
-									],
-									"isStacked": false
-								}
-							}
-						}
-					}
-				}
-			},
 			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
@@ -174,7 +43,7 @@
 				"nodeCount": 10,
 				"cores": 8,
 				"memory": 56,
-				"extraHeader": null
+				"automaticScaleJobs": true
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -196,28 +65,25 @@
 					"* Read older versions of data using Time Travel\n",
 					"* Write a stream of data to a table\n",
 					"* Read a stream of changes from a table"
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "markdown",
 				"source": [
 					"## Configuration\n",
 					"Make sure you modify this as appropriate."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
-					"import random\n",
+					"import random \n",
 					"\n",
 					"session_id = random.randint(0,1000000)\n",
 					"delta_table_path = \"/delta/delta-table-{0}\".format(session_id)\n",
 					"\n",
 					"delta_table_path"
 				],
-				"attachments": null,
 				"execution_count": 1
 			},
 			{
@@ -227,8 +93,7 @@
 					"To create a Delta Lake table, write a DataFrame out in the **delta** format. You can use existing Spark SQL code and change the format from parquet, csv, json, and so on, to delta.\n",
 					"\n",
 					"These operations create a new Delta Lake table using the schema that was inferred from your DataFrame. For the full set of options available when you create a new Delta Lake table, see Create a table and Write to a table (subsequent cells in this notebook)."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -274,7 +139,6 @@
 					"display(dframe2)\r\n",
 					"dframe2.show()"
 				],
-				"attachments": null,
 				"execution_count": 1
 			},
 			{
@@ -294,7 +158,6 @@
 					"dframe.write.format(\"delta\").save(\"/delta/EmployeeDeltaTable\")\r\n",
 					"dframe2.write.format(\"delta\").save(\"/delta/DepartmentDeltaTable\")"
 				],
-				"attachments": null,
 				"execution_count": 2
 			},
 			{
@@ -318,7 +181,6 @@
 					"dept_table = DeltaTable.forPath(spark, \"/delta/DepartmentDeltaTable\")\r\n",
 					"df_table.toDF().show()"
 				],
-				"attachments": null,
 				"execution_count": 7
 			},
 			{
@@ -340,7 +202,6 @@
 					"  set = { \"email\": \"'abc@abc.com'\" })\r\n",
 					"df_table.toDF().show()"
 				],
-				"attachments": null,
 				"execution_count": 10
 			},
 			{
@@ -362,7 +223,6 @@
 					"dept_df = spark.read.format(\"delta\").load(\"/delta/DepartmentDeltaTable\")\r\n",
 					"dept_df.show()"
 				],
-				"attachments": null,
 				"execution_count": 3
 			},
 			{
@@ -386,7 +246,6 @@
 					"\r\n",
 					"df_table.toDF().show()"
 				],
-				"attachments": null,
 				"execution_count": 54
 			},
 			{
@@ -396,7 +255,6 @@
 					"data.show()\n",
 					"data.write.format(\"delta\").save(delta_table_path)"
 				],
-				"attachments": null,
 				"execution_count": 2
 			},
 			{
@@ -405,15 +263,13 @@
 					"## Understanding Meta-data\n",
 					"\n",
 					"In Delta Lake, meta-data is no different from data i.e., it is stored next to the data. Therefore, an interesting side-effect here is that you can peek into meta-data using regular Spark APIs. "
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
 					"[log_line.value for log_line in spark.read.text(delta_table_path + \"/_delta_log/\").collect()]"
 				],
-				"attachments": null,
 				"execution_count": 3
 			},
 			{
@@ -422,8 +278,7 @@
 					"## Read data\n",
 					"\n",
 					"You read data in your Delta Lake table by specifying the path to the files."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -431,7 +286,6 @@
 					"df = spark.read.format(\"delta\").load(delta_table_path)\n",
 					"df.show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -441,8 +295,7 @@
 					"\n",
 					"Delta Lake supports several operations to modify tables using standard DataFrame APIs. This example runs a batch job to overwrite the data in the table.\n",
 					""
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -451,22 +304,19 @@
 					"data.write.format(\"delta\").mode(\"overwrite\").save(delta_table_path)\n",
 					"df.show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
 				"source": [
 					"When you now inspect the meta-data, what you will notice is that the original data is over-written. Well, not in a true sense but appropriate entries are added to Delta's transaction log so it can provide an \"illusion\" that the original data was deleted. We can verify this by re-inspecting the meta-data. You will see several entries indicating reference removal to the original data."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
 					"[log_line.value for log_line in spark.read.text(delta_table_path + \"/_delta_log/\").collect()]"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -475,8 +325,7 @@
 					"## Save as catalog tables\n",
 					"\n",
 					"Delta Lake can write to managed or external catalog tables."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -484,7 +333,6 @@
 					"# Write data to a new managed catalog table.\n",
 					"data.write.format(\"delta\").saveAsTable(\"ManagedDeltaTable\")"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -493,7 +341,6 @@
 					"# Define an external catalog table that points to the existing Delta Lake data in storage.\n",
 					"spark.sql(\"CREATE TABLE ExternalDeltaTable USING DELTA LOCATION '{0}'\".format(delta_table_path))"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -506,7 +353,6 @@
 					"spark.sql(\"DESCRIBE EXTENDED ManagedDeltaTable\").show(truncate=False)\n",
 					"spark.sql(\"DESCRIBE EXTENDED ExternalDeltaTable\").show(truncate=False)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -515,8 +361,7 @@
 					"## Conditional update without overwrite\n",
 					"\n",
 					"Delta Lake provides programmatic APIs to conditional update, delete, and merge (upsert) data into tables. For more information on these operations, see [Table Deletes, Updates, and Merges](https://docs.delta.io/latest/delta-update.html)."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -526,7 +371,6 @@
 					"\n",
 					"delta_table = DeltaTable.forPath(spark, delta_table_path)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -538,7 +382,6 @@
 					"  set = { \"id\": expr(\"id + 100\") })\n",
 					"delta_table.toDF().show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -548,7 +391,6 @@
 					"delta_table.delete(\"id % 2 == 0\")\n",
 					"delta_table.toDF().show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -565,7 +407,6 @@
 					"\n",
 					"delta_table.toDF().show(100)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -573,15 +414,13 @@
 				"source": [
 					"## History\n",
 					"Delta's most powerful feature is the ability to allow looking into history i.e., the changes that were made to the underlying Delta Table. The cell below shows how simple it is to inspect the history."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
 					"delta_table.history().show(20, 1000, False)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -592,8 +431,7 @@
 					"You can query previous snapshots of your Delta Lake table by using a feature called Time Travel. If you want to access the data that you overwrote, you can query a snapshot of the table before you overwrote the first set of data using the versionAsOf option.\n",
 					"\n",
 					"Once you run the cell below, you should see the first set of data, from before you overwrote it. Time Travel is an extremely powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table (time travel)](https://docs.delta.io/latest/delta-batch.html#deltatimetravel)."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -601,7 +439,6 @@
 					"df = spark.read.format(\"delta\").option(\"versionAsOf\", 0).load(delta_table_path)\n",
 					"df.show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -620,8 +457,7 @@
 					"3. *Cell 31* Inspect history\n",
 					"4. *Cell 32* Stop the structured streaming job\n",
 					"5. *Cell 33* Inspect history <-- You'll notice appends have stopped"
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -634,7 +470,6 @@
 					"    .option(\"checkpointLocation\", \"/tmp/checkpoint-{0}\".format(session_id))\\\n",
 					"    .start(delta_table_path)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -643,15 +478,13 @@
 					"## Read a stream of changes from a table\n",
 					"\n",
 					"While the stream is writing to the Delta Lake table, you can also read from that table as streaming source. For example, you can start another streaming query that prints all the changes made to the Delta Lake table."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
 					"delta_table.toDF().sort(col(\"id\").desc()).show(100)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -659,7 +492,6 @@
 				"source": [
 					"delta_table.history().drop(\"userId\", \"userName\", \"job\", \"notebook\", \"clusterId\", \"isolationLevel\", \"isBlindAppend\").show(20, 1000, False)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -667,7 +499,6 @@
 				"source": [
 					"stream.stop()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -675,7 +506,6 @@
 				"source": [
 					"delta_table.history().drop(\"userId\", \"userName\", \"job\", \"notebook\", \"clusterId\", \"isolationLevel\", \"isBlindAppend\").show(100, 1000, False)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -687,8 +517,7 @@
 					"\n",
 					"The option `dataChange = false` is an optimization that tells Delta Lake to do the repartition without marking the underlying data as \"modified\". This ensures that any other concurrent operations (such as streaming reads/writes) aren't negatively impacted.\n",
 					""
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -704,7 +533,6 @@
 					"    .mode(\"overwrite\")\\\n",
 					"    .save(delta_table_path)    "
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -712,8 +540,7 @@
 				"source": [
 					"## Convert Parquet to Delta\n",
 					"You can do an in-place conversion from the Parquet format to Delta."
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
@@ -726,7 +553,6 @@
 					"# Confirm that the data isn't in the Delta format\n",
 					"DeltaTable.isDeltaTable(spark, parquet_path)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -737,7 +563,6 @@
 					"# Confirm that the converted data is now in the Delta format\n",
 					"DeltaTable.isDeltaTable(spark, parquet_path)"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -749,15 +574,13 @@
 					"* Vacuum a DeltaTable\n",
 					"* Convert a Parquet file to Delta\n",
 					""
-				],
-				"attachments": null
+				]
 			},
 			{
 				"cell_type": "code",
 				"source": [
 					"spark.sql(\"DESCRIBE HISTORY delta.`{0}`\".format(delta_table_path)).show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -765,7 +588,6 @@
 				"source": [
 					"spark.sql(\"VACUUM delta.`{0}`\".format(delta_table_path)).show()"
 				],
-				"attachments": null,
 				"execution_count": null
 			},
 			{
@@ -785,7 +607,6 @@
 					"\n",
 					"DeltaTable.isDeltaTable(spark, parquet_path)"
 				],
-				"attachments": null,
 				"execution_count": null
 			}
 		]
