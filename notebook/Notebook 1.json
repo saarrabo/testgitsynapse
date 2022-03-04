@@ -76,6 +76,7 @@
 				"source": [
 					"data = spark.range(0,6)\r\n",
 					"data.show()"
+					"data.show()"
 				],
 				"execution_count": 6
 			},
