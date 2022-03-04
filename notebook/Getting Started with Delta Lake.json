@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "5",
-				"spark.autotune.trackingId": "07c06cea-c270-47ff-8ff3-7b55562abff0"
+				"spark.autotune.trackingId": "efc87abf-787a-49ce-b671-6a08afa579b9"
 			}
 		},
 		"metadata": {
@@ -50,6 +50,22 @@
 		"cells": [
 			{
 				"cell_type": "markdown",
+				"source": [
+					"# Guide to Delta Lake (Python)\n",
+					"\n",
+					"This tutorial has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This notebook helps you quickly explore the main features of [Delta Lake](https://github.com/delta-io/delta). It provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries.\n",
+					"\n",
+					"Here's what we will cover:\n",
+					"* Create a table\n",
+					"* Understanding meta-data\n",
+					"* Read data\n",
+					"* Update table data\n",
+					"* Overwrite table data\n",
+					"* Conditional update without overwrite\n",
+					"* Read older versions of data using Time Travel\n",
+					"* Write a stream of data to a table\n",
+					"* Read a stream of changes from a table"
+				]
 			},
 			{
 				"cell_type": "markdown",
