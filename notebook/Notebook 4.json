@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "49448a6a-af0c-461a-8273-880e3eaa5783"
+				"spark.autotune.trackingId": "7d5fc69d-5107-4f4c-81d9-4fadd5ee8369"
 			}
 		},
 		"metadata": {
@@ -42,7 +42,7 @@
 					"df.show(10)\n",
 					"df.show(20)\n",
 					"df.show(16)\n",
-					"df.show(18)\n",
+					"df.show(14)\n",
 					"df.show(20)\n",
 					"df.show(16)"
 				],
