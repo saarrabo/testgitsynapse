@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "5",
-				"spark.autotune.trackingId": "cbaa831c-b88c-4b57-bee3-7dd696df01a6"
+				"spark.autotune.trackingId": "e32a619d-83a0-4c52-bb0b-49285dd86fa8"
 			}
 		},
 		"metadata": {
@@ -53,7 +53,7 @@
 				"source": [
 					"# Guide to Delta Lake (Python)\n",
 					"\n",
-					"This tutorial now has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This notebook helps you quickly explore the main features of [Delta Lake](https://github.com/delta-io/delta). It provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries.\n",
+					"This tutorial has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This notebook helps you quickly explore the main features of [Delta Lake](https://github.com/delta-io/delta). It provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries.\n",
 					"\n",
 					"Here's what we will cover:\n",
 					"* Create a table\n",
@@ -248,7 +248,13 @@
 				],
 				"execution_count": 54
 			},
-			{				
+			{
+				"cell_type": "code",
+				"source": [
+					"data = spark.range(0,5)\n",
+					"data.show()\n",
+					"data.write.format(\"delta\").save(delta_table_path)"
+				],
 				"execution_count": 2
 			},
 			{
