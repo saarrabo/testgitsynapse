@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "9348b5e4-b61e-434d-bcce-2c37f7e7ab91"
+				"spark.autotune.trackingId": "6f70049e-58da-4834-ab25-49648d469840"
 			}
 		},
 		"metadata": {
@@ -41,8 +41,10 @@
 					"df = spark.sql(\"SELECT * FROM `OilGas_76m`.`Channel`\")\n",
 					"df.show(18)\n",
 					"df.show(20)\n",
-					"df.show(16)\n"
-					
+					"df.show(16)\n",
+					"df.show(18)\n",
+					"df.show(20)\n",
+					"df.show(16)"
 				],
 				"execution_count": null
 			},
