@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "e3cb1865-04ad-45db-8103-c92e045c9fd7"
+				"spark.autotune.trackingId": "776ac7fb-3ee3-44ac-9808-58247a21e217"
 			}
 		},
 		"metadata": {
@@ -31,17 +31,13 @@
 		"cells": [
 			{
 				"cell_type": "code",
-				"metadata": {
-					"microsoft": {
-						"language": "python"
-					}
-				},
 				"source": [
-					"%%pyspark\n",
-					"df = spark.sql(\"SELECT * FROM `OilGas_76m`.`Channel`\")\n",
-					"df.show(180)\n",
-					"df.show(20000)\n",
-					"df.show(16)"
+					"import requests\n",
+					"headers = {'Authorization': \"Token \" + 'YOUR_TOKEN_HERE'}\n",
+					"url = \"https://api.github.com/repos/saarrabo/testsynapsegit/git/refs/heads\"\n",
+					"branches = requests.get(url, headers=headers).json()\n",
+					"branch, sha = branches[-1]['ref'], branches[-1]['object']['sha']\n",
+					"branches"
 				],
 				"execution_count": null
 			},
@@ -59,7 +55,11 @@
 					}
 				},
 				"source": [
-					"df.show(16)"
+					"res = requests.post('https://api.github.com/repos/<USERNAME>/<REPO>/git/refs', json={\r\n",
+					"    \"ref\": \"refs/heads/newbranch\",\r\n",
+					"    \"sha\": sha\r\n",
+					"}, headers=headers)\r\n",
+					"print(res.content)"
 				],
 				"execution_count": null
 			}
