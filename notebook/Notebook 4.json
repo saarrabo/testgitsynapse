@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "4a730f35-ec4a-4a98-8e82-0f32c132b63c"
+				"spark.autotune.trackingId": "9af5b150-433c-4f1c-a305-24544b34162d"
 			}
 		},
 		"metadata": {
@@ -55,11 +55,9 @@
 					"headers = {'Authorization': \"Token \" + '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'}\n",
 					"url = \"https://api.github.com/repos/saarrabo/testgitsynapse/git/refs/heads\"\n",
 					"branches = requests.get(url, headers=headers).json()\n",
-					"branches\n",
-					"branch, sha = branches[-1]['ref'], branches[-1]['object']['sha']\n",
-					""
+					"branches"
 				],
-				"execution_count": 8
+				"execution_count": 17
 			},
 			{
 				"cell_type": "code",
@@ -75,13 +73,15 @@
 					}
 				},
 				"source": [
+					"\r\n",
+					"branch, sha = branches[-1]['ref'], branches[-1]['object']['sha']\r\n",
 					"res = requests.post('https://api.github.com/repos/saarrabo/testgitsynapse/git/refs', json={\r\n",
 					"    \"ref\": \"refs/heads/newbranch2\",\r\n",
 					"    \"sha\": sha\r\n",
 					"}, headers=headers)\r\n",
 					"print(res.content)"
 				],
-				"execution_count": 9
+				"execution_count": 12
 			},
 			{
 				"cell_type": "code",
@@ -97,9 +97,8 @@
 					}
 				},
 				"source": [
-					"res = requests.post('https://api.github.com/repos/saarrabo/testgitsynapse/git/refs', json={\r\n",
-					"    \"ref\": \"refs/heads/newbranch2\",\r\n",
-					"    \"sha\": sha\r\n",
+					"res = requests.post('https://api.github.com/repos/saarrabo/testgitsynapse/pulls', json={\r\n",
+					"  \"head\":\"test\",\"base\":\"test2\"\r\n",
 					"}, headers=headers)\r\n",
 					"print(res.content)"
 				],
