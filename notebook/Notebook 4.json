@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "776ac7fb-3ee3-44ac-9808-58247a21e217"
+				"spark.autotune.trackingId": "e831f5bb-4c59-402a-960a-4902e3ddcc6a"
 			}
 		},
 		"metadata": {
@@ -33,7 +33,7 @@
 				"cell_type": "code",
 				"source": [
 					"import requests\n",
-					"headers = {'Authorization': \"Token \" + 'YOUR_TOKEN_HERE'}\n",
+					"headers = {'Authorization': \"Token \" + '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'}\n",
 					"url = \"https://api.github.com/repos/saarrabo/testsynapsegit/git/refs/heads\"\n",
 					"branches = requests.get(url, headers=headers).json()\n",
 					"branch, sha = branches[-1]['ref'], branches[-1]['object']['sha']\n",
