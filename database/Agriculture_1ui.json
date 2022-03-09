@@ -1,0 +1,24 @@
+{
+	"name": "Agriculture_1ui",
+	"properties": {
+		"Description": "",
+		"Name": "Agriculture_1ui",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"Agriculture\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://user@sdsteststore2.dfs.core.windows.net/Agriculture_1ui",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "sds-test-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
